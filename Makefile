@@ -45,19 +45,19 @@ setup: install
 # Run preprocessing
 preprocess:
 	@echo "Running EEG preprocessing pipeline..."
-	python scripts/preprocess.py
+	python scripts/pipeline/preprocess.py
 	@echo "✅ Preprocessing completed!"
 
 # Train model
 train:
 	@echo "Training CNN model..."
-	python scripts/train.py
+	python scripts/pipeline/train.py
 	@echo "✅ Training completed!"
 
 # Evaluate model
 evaluate:
 	@echo "Evaluating trained model..."
-	python scripts/evaluate.py
+	python scripts/pipeline/evaluate.py
 	@echo "✅ Evaluation completed!"
 
 # Run tests
