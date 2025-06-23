@@ -73,8 +73,8 @@ The training script automatically logs to Weights & Biases. To view:
 ## 6. View Results
 
 After training, you'll find:
-- Model checkpoint: `best_model.pth`
-- Evaluation results: `evaluation_results.pkl`
+- Model checkpoint: `artifacts/models/best_model.pth`
+- Evaluation results: `artifacts/results/evaluation_results.pkl`
 - W&B logs: `wandb/` directory
 
 ## 7. Development
