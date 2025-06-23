@@ -1,0 +1,60 @@
+# Data Configuration
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed"
+  bids_root: "data/bids"
+  sampling_rate: 250  # Hz (downsampled from 1000 Hz)
+  window_length: 8.0  # seconds
+  overlap: 2.0  # seconds
+  high_iat_threshold: 50  # IAT score threshold for IA classification
+  low_iat_threshold: 30   # IAT score threshold for control classification
+
+# Preprocessing Configuration
+preprocessing:
+  filter_low: 0.5  # Hz
+  filter_high: 45.0  # Hz
+  notch_freq: 50.0  # Hz (European power line)
+  reference: "average"  # or "Cz", "mastoids"
+  ica_n_components: 15
+  remove_artifacts: true
+  spectral_mode: true  # Use spectral features instead of raw time series
+
+# Model Configuration
+model:
+  architecture: "cnn_5layer"
+  input_channels: 62  # EEG channels
+  spectral_bins: 64   # Frequency bins for spectral features
+  conv_layers: 5
+  conv_channels: [32, 64, 128, 256, 512]
+  conv_kernel_sizes: [3, 3, 3, 3, 3]
+  pool_kernel_sizes: [2, 2, 2, 2, 2]
+  dropout_rate: 0.5
+  activation: "relu"
+
+# Training Configuration
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 1e-5
+  num_epochs: 100
+  early_stopping_patience: 10
+  validation_split: 0.2
+  test_split: 0.2
+  random_seed: 42
+  device: "auto"  # "cpu", "cuda", or "auto"
+
+# Weights & Biases Configuration
+wandb:
+  project: "lemon-eeg-cnn"
+  entity: null  # Set your username here
+  tags: ["eeg", "cnn", "internet-addiction"]
+  log_model: true
+  log_artifacts: true
+
+# Evaluation Configuration
+evaluation:
+  metrics: ["accuracy", "precision", "recall", "f1", "auc"]
+  cross_validation_folds: 5
+  save_predictions: true
+  confusion_matrix: true
+  roc_curve: true 
