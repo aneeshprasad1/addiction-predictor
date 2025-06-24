@@ -4,6 +4,8 @@
 
 This project reimplements the core methodology of the 2022 MDPI paper: *"EEG Signals Based Internet Addiction Diagnosis Using CNN with 5-Layer Architecture"*. It uses the LEMON (Leipzig Mind‑Brain‑Body) EEG dataset to classify internet addiction from resting-state brain activity.
 
+https://www.mdpi.com/2076-3417/12/13/6297
+
 The goal is to reproduce and improve upon the reported \~87.6% classification accuracy by modernizing the pipeline using PyTorch, MNE, and MLOps tools such as Weights & Biases.
 
 ---
